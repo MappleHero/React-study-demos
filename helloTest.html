@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="./react-15.2.1/build/react.js"></script>
+    <script src="./react-15.2.1/build/react-dom.js"></script>
+    <!-- <script src="./react-15.2.1/build/browser.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script> 
+  </head>
+  <body>
+    <!-- <div id="example"></div>
+    <script type="text/babel">
+      ReactDOM.render(
+        <h1>Hello, world!</h1>,
+        document.getElementById('example')
+      );
+    </script> -->
+
+    <script type="text/babel">
+      var HelloWorld = React.createClass({
+      render: function () {
+        return <p>Hello, World</p>
+      }
+    });
+        ReactDOM.render(
+      <HelloWorld></HelloWorld>, document.body
+    );
+    </script>
+  </body>
+</html>
