@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+ 	<meta charset="UTF-8">
+	<title>React动画</title>
+	<script src="./react-15.2.1/build/react.js"></script>
+    <script src="./react-15.2.1/build/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.24/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="example"></div>
+    <script type="text/babel">
+	  var Positioner = React.createClass({
+	  	getInitialState: function () {
+	  		return {
+				postion: 0
+	  		};
+	  	},
+	  	resolveSetTimeout: function (event) {
+	  		if (this.state.postion < this.props.postion) {
+	  			this.setState({
+	  				postion: this.state.postion + 1
+	  			});
+	  		}
+	  	},
+	  	componentDidUpdate: function (i) {
+	  		if (this.props.postion) {
+	  			setTimeout(this.resolveSetTimeout, this.props.timeoutMs);
+	  		}
+	  	},
+		render: function () {
+			var divStyle = {
+				marginLeft: this.state.postion
+			};
+			return (<div style={divStyle}>This will animate!
+				</div>);
+		},
+	  });
+      ReactDOM.render(
+        <Positioner/>,
+        document.getElementById('example')
+      );
+      ReactDOM.render(
+        <Positioner postion={100} timeoutMs={10}/>,
+        document.getElementById('example')
+      );
+    </script>
+  </body>
+</html>
